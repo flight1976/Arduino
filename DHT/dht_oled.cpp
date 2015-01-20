@@ -1,5 +1,8 @@
 #include <SPI.h>
 #include <Wire.h>
+
+//https://github.com/adafruit/Adafruit-GFX-Library
+//https://github.com/adafruit/Adafruit_SSD1306
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
@@ -10,6 +13,8 @@ Adafruit_SSD1306 display(OLED_RESET);
 #define XPOS 0
 #define YPOS 1
 #define DELTAY 2
+
+//https://github.com/markruys/arduino-DHT
 #include "DHT.h"
 
 DHT dht;
@@ -23,7 +28,7 @@ void setup()
   Serial.begin(9600);
   Serial.println();
   Serial.println("Status\tHumidity (%)\tTemperature (C)\t(F)");
-  dht.setup(2); // data pin 2
+  dht.setup(7); // data pin 2
   
   // 0x3C or 0x3D 
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
